@@ -20,7 +20,7 @@ public class Player extends GameObject {
 	@Override
 	public void update(GameContainer gc, float dt) {
 		if (gc.getInput().isKey(KeyCode.W.ordinal())) {
-			y -= 75 * dt;
+			y -= 100 * dt;
 
 			if (y < 0) {
 				y = 0;
@@ -28,7 +28,7 @@ public class Player extends GameObject {
 		}
 
 		if (gc.getInput().isKey(KeyCode.S.ordinal())) {
-			y += 75 * dt;
+			y += 100 * dt;
 
 			if (y + h > gc.getHeight()) {
 				y = gc.getHeight() - h;

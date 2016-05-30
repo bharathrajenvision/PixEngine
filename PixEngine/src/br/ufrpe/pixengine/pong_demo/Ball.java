@@ -10,6 +10,7 @@ import javafx.geometry.Rectangle2D;
 public class Ball extends GameObject {
     private AnimatedImage ballAnimatedImg;
 	boolean left = true;
+	boolean playColisionSound = false;
 	float speedY = 0;
 
 	public Ball(int x, int y) {
@@ -25,6 +26,10 @@ public class Ball extends GameObject {
 
 	@Override
 	public void update(GameContainer gc, float dt) {
+	    if (playColisionSound) {
+	        gc.getSoundManager().playSound("shot");
+	        playColisionSound = false;
+        }
 		if (left) {
 			x -= dt * 50;
 		} else {
@@ -68,7 +73,7 @@ public class Ball extends GameObject {
 			} else {
 				left = true;
 			}
-
+			playColisionSound = true;
 			speedY = -((object.getY() + (object.getH() / 2)) - (y + (h / 2))) / (object.getH() / 2);
 		}
 	}

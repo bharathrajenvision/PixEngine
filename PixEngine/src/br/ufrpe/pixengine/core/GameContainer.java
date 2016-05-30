@@ -1,6 +1,7 @@
 package br.ufrpe.pixengine.core;
 
 import br.ufrpe.pixengine.components.Physics;
+import br.ufrpe.pixengine.core.fx.SoundManager;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -12,6 +13,7 @@ public class GameContainer implements Runnable {
 	private Renderer renderer;
 	private Input input;
 	private Physics physics;
+	private SoundManager soundManager;
 
 	private int width = 640, height = 480;
 	private float scale = 1.0f;
@@ -37,6 +39,7 @@ public class GameContainer implements Runnable {
 		renderer = new Renderer(this);
 		input = new Input(this);
 		physics = new Physics();
+		this.soundManager = new SoundManager(6);
 
 		thread = new Thread(this);
 		thread.start();
@@ -224,4 +227,12 @@ public class GameContainer implements Runnable {
 	public void setPhysics(Physics physics) {
 		this.physics = physics;
 	}
+
+    public SoundManager getSoundManager() {
+        return soundManager;
+    }
+
+    public void setSoundManager(SoundManager soundManager) {
+        this.soundManager = soundManager;
+    }
 }

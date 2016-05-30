@@ -2,6 +2,7 @@ package br.ufrpe.pixengine.pong_demo;
 
 import br.ufrpe.pixengine.core.GameContainer;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
 public class PongGame extends Application {

@@ -1,5 +1,9 @@
 package br.ufrpe.pixengine.pong_demo;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Paths;
+
 import br.ufrpe.pixengine.core.AbstractGame;
 import br.ufrpe.pixengine.core.GameContainer;
 import br.ufrpe.pixengine.core.Renderer;
@@ -22,6 +26,11 @@ public class GameManager extends AbstractGame {
 
 	@Override
 	public void init(GameContainer gc) {
+        try {
+            gc.getSoundManager().loadSoundEffects("shot", Paths.get("res/shot.wav").toUri().toURL());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 //		peek().getManager()
 	}
 
